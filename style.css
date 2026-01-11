@@ -1,0 +1,1943 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #080808;
+  color: #fff;
+}
+body:not(.loaded) .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: flex-start; /* ⬅️ KEY CHANGE */
+  padding: 15px 80px; /* ⬅️ reduced top padding */
+  position: fixed;
+  top: 0; /* ⬅️ FORCE TOP */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* MENU */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 42px;
+}
+
+nav ul li a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  position: relative;
+  padding: 6px 2px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease, transform 0.25s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff004f, #ff69b4);
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+  border-radius: 4px;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+nav ul li a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+nav ul li a.active {
+  color: #ff4d88;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+}
+/* 🍎 NAVBAR SHRINKED STATE */
+nav.shrink {
+  height: 56px;
+}
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px;
+  background: url("images/background.webp") center/cover no-repeat;
+}
+
+.hero-text span {
+  color: #ff004f;
+}
+
+.hero-text p {
+  font-size: 24px;
+}
+
+/* ABOUT */
+#about {
+  padding: 120px;
+}
+
+.about-container {
+  display: flex;
+  gap: 60px;
+}
+
+.about-left img {
+  width: 320px;
+  border-radius: 15px;
+}
+
+.about-right p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+/* TABS */
+.tabs {
+  margin: 30px 0;
+}
+
+.tabs span {
+  margin-right: 30px;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+}
+
+.tabs span.active {
+  color: #ff004f;
+}
+/* 🧩 Premium About Tabs */
+.tabs span {
+  font-weight: 500;
+  color: #aaa;
+  padding-bottom: 6px;
+}
+
+.tabs span.active {
+  color: #fff;
+}
+
+.tabs span.active::after {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff004f, #ff69b4);
+  border-radius: 3px;
+}
+
+.tabs span.active::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content ul li {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+/* 📋 About Lists – Clean & Professional */
+.tab-content ul {
+  margin-top: 20px;
+}
+
+.tab-content ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.tab-content ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #ff004f;
+  font-size: 18px;
+}
+
+/* STATS / RESULTS */
+#stats {
+  padding: 120px;
+  text-align: center;
+}
+
+#stats h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.stats-images img {
+  max-width: 90%;
+  margin: 30px auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* REVIEWS */
+#reviews {
+  padding: 120px;
+}
+
+#reviews h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+/* CONTACT */
+#contact {
+  padding: 120px;
+  background: radial-gradient(circle at top left, #111, #000);
+}
+
+#contact h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.contact-left p {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #bbb;
+}
+
+.contact-left button {
+  margin-top: 30px;
+  background: #ff004f;
+  border: none;
+  padding: 14px 35px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contact-right {
+  max-width: 520px;
+  width: 100%;
+}
+
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  background: #1c1c1c;
+  border: none;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.submit-btn {
+  background: #ff004f;
+  border: none;
+  padding: 14px 40px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.email-link {
+  color: #ff004f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Running color glow */
+@keyframes colorRun {
+  0% {
+    box-shadow: 0 0 25px red;
+  }
+  10% {
+    box-shadow: 0 0 25px orange;
+  }
+  20% {
+    box-shadow: 0 0 25px yellow;
+  }
+  30% {
+    box-shadow: 0 0 25px lime;
+  }
+  40% {
+    box-shadow: 0 0 25px green;
+  }
+  50% {
+    box-shadow: 0 0 25px cyan;
+  }
+  60% {
+    box-shadow: 0 0 25px blue;
+  }
+  70% {
+    box-shadow: 0 0 25px purple;
+  }
+  80% {
+    box-shadow: 0 0 25px hotpink;
+  }
+  90% {
+    box-shadow: 0 0 25px white;
+  }
+  100% {
+    box-shadow: 0 0 25px red;
+  }
+}
+
+/* ===============================
+   🟢 BOUNCE EFFECT (ONLY RESULTS & REVIEWS)
+================================ */
+.stats-images img:hover,
+.reviews-grid img:hover {
+  animation: colorRun 3s linear infinite, bounce 0.8s ease;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-12px);
+  }
+  60% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* ===============================
+   🚀 SERVICES SECTION
+================================ */
+#services {
+  padding: 120px;
+  text-align: center;
+}
+
+#services h2 {
+  font-size: 48px;
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.service-box {
+  background: #111;
+  padding: 40px 30px;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.service-box h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ff004f;
+}
+
+.service-box p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ccc;
+}
+/* ===============================
+   🔥 SERVICE-STYLE BUTTON
+   (Download CV + Submit)
+================================ */
+
+.service-btn {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 14px 38px;
+  border-radius: 16px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+/* Same POP + GLOW as Services boxes */
+.service-btn:hover {
+  transform: scale(1.08);
+  animation: colorRun 3s linear infinite;
+}
+/* ===============================
+   🔴 RED COLOR FOR CV + SUBMIT BUTTON
+================================ */
+
+.service-btn {
+  background: #ff004f; /* Red */
+}
+/* Smooth color transition for typing text */
+#typing-text {
+  transition: color 0.5s ease;
+}
+/* Prevent text jumping while typing */
+#typing-text {
+  display: inline-block;
+  min-height: 1.2em;
+  transition: color 0.6s ease;
+}
+/* ===============================
+   🔒 KEEP CV BUTTON ORIGINAL
+================================ */
+
+.contact-left .service-btn {
+  background: #ff004f;
+  border-radius: 14px;
+  padding: 14px 38px;
+  box-shadow: none;
+  animation: none;
+}
+
+.contact-left .service-btn:hover {
+  transform: scale(1.08);
+  animation: colorRun 3s linear infinite;
+}
+
+/* ===============================
+   🖼️ ABOUT IMAGE POP + GLOW
+================================ */
+
+.popup-glow {
+  transition: transform 0.4s ease;
+}
+
+/* 🧠 Professional Image Hover (Calm & Premium) */
+.popup-glow {
+  border-radius: 18px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.popup-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 79, 0.25);
+}
+/* ✍️ About Text Hierarchy */
+.about-right h2 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.about-right p {
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #cfcfcf;
+}
+
+/* ===============================
+   ✍️ MESSAGE INPUT GLOW + POP
+================================ */
+
+.input-glow {
+  transition: transform 0.3s ease;
+}
+
+.input-glow:hover,
+.input-glow:focus {
+  transform: scale(1.03);
+  animation: colorRun 3s linear infinite;
+  outline: none;
+}
+/* ===============================
+   | BLINKING CURSOR
+================================ */
+
+#typing-text::after {
+  content: "|";
+  margin-left: 6px;
+  animation: blink 1s infinite;
+  color: currentColor;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+/* ===============================
+   🎬 SCROLL REVEAL ANIMATION
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===============================
+   🚀 HERO CTA BUTTON
+================================ */
+
+.hero-cta {
+  margin-top: 30px;
+}
+/* ===============================
+   ⭐ TRUST BADGES
+================================ */
+
+.trust-badges {
+  display: flex;
+  gap: 18px;
+  margin-top: 25px;
+  align-items: center;
+}
+
+.trust-badges img {
+  width: 45px;
+  opacity: 0.85;
+  transition: transform 0.3s ease;
+}
+
+.trust-badges img:hover {
+  transform: scale(1.15);
+  animation: colorRun 3s linear infinite;
+  opacity: 1;
+}
+/* ===============================
+   🔝 FORCE NAV MENU TO RIGHT
+================================ */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+/* 🍎 Apple-style shrink animation */
+nav {
+  transition: height 0.3s ease, padding 0.3s ease;
+}
+
+nav ul {
+  position: absolute;
+  top: 20px;
+  right: 80px; /* ⬅️ PUSH TO RIGHT */
+  margin: 0;
+  padding: 0;
+}
+
+/* ===============================
+   📱 MOBILE ANIMATION TUNING
+================================ */
+@media (max-width: 768px) {
+  .popup-glow:hover,
+  .service-btn:hover,
+  .text-glow:hover {
+    transform: scale(1.03);
+  }
+
+  /* Reduce glow intensity */
+  img:hover,
+  .service-box:hover,
+  .service-btn:hover,
+  .input-glow:hover,
+  .input-glow:focus {
+    box-shadow: 0 0 15px rgba(255, 0, 79, 0.6);
+  }
+
+  /* Faster scroll reveal on mobile */
+  .reveal {
+    transition: all 0.6s ease;
+  }
+
+  /* Slightly smaller buttons */
+  .service-btn {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+}
+/* ===============================
+   📱 MOBILE INTERFACE (SMALL SCREENS)
+================================ */
+@media only screen and (max-width: 600px) {
+  /* HERO SECTION */
+  #hero {
+    background: none;
+  }
+
+  #hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("images/background.webp") center/cover no-repeat;
+    z-index: -1;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  /* CTA BUTTON */
+  .hero-cta {
+    margin-top: 25px;
+    font-size: 16px;
+  }
+
+  /* TRUST BADGES */
+  .trust-badges {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-badges img {
+    width: 38px;
+  }
+
+  /* NAV MENU (TEMPORARY SIMPLE MOBILE VIEW) */
+  nav ul {
+    top: 15px;
+    right: 20px;
+    gap: 18px;
+    font-size: 14px;
+  }
+
+  /* ABOUT SECTION */
+  #about {
+    padding: 80px 20px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-left img {
+    width: 220px;
+    margin-bottom: 25px;
+  }
+
+  /* SERVICES */
+  #services {
+    padding: 80px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* REVIEWS */
+  #reviews {
+    padding: 80px 20px;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 80px 20px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+}
+#about h2,
+#services h2,
+#reviews h2,
+#contact h2 {
+  font-size: 30px;
+}
+
+.about-right p {
+  font-size: 15px;
+}
+
+.service-box h3 {
+  font-size: 22px;
+}
+
+.service-box p {
+  font-size: 15px;
+}
+/* ===============================
+   📱 MOBILE HAMBURGER MENU
+================================ */
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Mobile view */
+@media (max-width: 320px) {
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 1100;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 18px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
+/* ===============================
+   📱 MOBILE LOGO POSITION
+================================ */
+@media (max-width: 600px) {
+  nav {
+    padding: 12px 20px;
+  }
+}
+/* ===============================
+   📱 MOBILE HERO TEXT ALIGNMENT
+================================ */
+@media (max-width: 600px) {
+  .hero-text {
+    text-align: left;
+    max-width: 90%;
+    margin-left: 0;
+  }
+
+  .hero-text h1,
+  .hero-text p {
+    text-align: left;
+  }
+}
+/* ===============================
+   📱 MOBILE CTA ALIGNMENT
+================================ */
+@media (max-width: 600px) {
+  .hero-cta {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .hero-text {
+    text-align: left;
+    max-width: 90%;
+  }
+}
+
+/* ===============================
+   💬 WHATSAPP FLOAT BUTTON
+================================ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2000;
+}
+
+.whatsapp-float img {
+  width: 55px;
+}
+
+/* ===============================
+   © FOOTER COPYRIGHT
+================================ */
+
+.site-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  color: #aaa;
+  background: #080808;
+}
+
+/* ===============================
+   © FOOTER COPYRIGHT (BOTTOM LEFT)
+================================ */
+
+.site-footer {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  font-size: 14px;
+  color: #aaa;
+  background: transparent;
+  z-index: 1500;
+}
+
+/* ===============================
+   🎯 HERO TEXT – RESPONSIVE SIZE + POSITION
+================================ */
+
+.hero-text {
+  max-width: 600px;
+
+  margin-left: clamp(8px, 5vw, 80px);
+}
+
+/* MAIN HEADING */
+.hero-text h1 {
+  font-size: clamp(30px, 4.5vw, 58px); /* desktop thora chota */
+  line-height: 1.2;
+}
+
+/* SUB TEXT */
+.hero-text p {
+  font-size: clamp(15px, 2vw, 22px);
+  line-height: 1.6;
+}
+/* 🚫 DISABLE ALL ANIMATIONS & GLOW FOR LOGO */
+.logo,
+.logo:hover {
+  animation: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+/* ===============================
+   🔒 NAVBAR ALWAYS ON TOP (ALL SLIDES)
+================================ */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* VERY IMPORTANT */
+  background: transparent; /* keep background image visible */
+}
+
+/* Make sure slides/sections never cover navbar */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Push content down so navbar does not overlap */
+#hero,
+#about,
+#stats,
+#services,
+#reviews,
+#pricing #contact {
+  padding-top: 120px;
+}
+/* ===============================
+   📱 MOBILE NAV MENU FIX
+================================ */
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 18px;
+    z-index: 9999;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+#pattern-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* ⬅️ push behind everything */
+  pointer-events: none; /* ⬅️ allow clicks through */
+}
+/* ===============================
+   🔒 MOBILE MENU CLICK FIX
+================================ */
+
+nav {
+  z-index: 10000 !important;
+}
+
+nav ul {
+  z-index: 10001 !important;
+}
+
+.menu-icon {
+  z-index: 10002 !important;
+}
+/* ===============================
+   📱 MOBILE NAV MENU FIX
+================================ */
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: #111;
+    padding: 20px;
+    border-radius: 14px;
+    flex-direction: column;
+    gap: 18px;
+    width: 200px;
+    z-index: 10001;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+}
+/* FORCE NAV ABOVE EVERYTHING */
+nav {
+  z-index: 10000 !important;
+}
+
+.menu-icon {
+  z-index: 10002 !important;
+}
+/* ===============================
+   📱 MOBILE MENU ATTACHED TO ☰
+================================ */
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10002;
+  }
+
+  nav ul {
+    display: none;
+    position: absolute; /* 🔥 attach to nav */
+    top: 55px; /* 🔥 just below ☰ */
+    right: 20px; /* 🔥 aligned with ☰ */
+    background: #111;
+    padding: 18px 22px;
+    border-radius: 16px;
+    flex-direction: column;
+    gap: 16px;
+    width: 190px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    z-index: 10001;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+}
+@media (max-width: 768px) {
+  nav ul {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+
+  nav ul.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ===============================
+   🔝 LOGO – TRUE TOP LEFT CORNER
+================================ */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+}
+
+.logo {
+  position: fixed;
+  top: 14px;
+  left: 20px;
+  width: 210px;
+  z-index: 10005;
+  transition: width 0.3s ease, top 0.3s ease;
+}
+/* Logo shrink */
+nav.shrink .logo {
+  width: 165px;
+  top: 10px;
+}
+
+nav ul {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  transition: top 0.3s ease;
+}
+/* Menu moves up when navbar shrinks */
+nav.shrink ul {
+  top: 14px;
+}
+
+/* ===============================
+   📱 MOBILE ADJUSTMENT
+================================ */
+
+@media (max-width: 768px) {
+  .logo {
+    width: 150px;
+    top: 12px;
+    left: 15px;
+  }
+}
+/* ===============================
+   🔗 SOCIAL ICONS – FONT AWESOME
+================================ */
+
+.social-icons {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 2000;
+}
+
+.social-icons a {
+  width: 44px;
+  height: 44px;
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===============================
+   🎨 SOCIAL ICON BRAND COLORS
+================================ */
+
+.social {
+  background: #111;
+  color: #fff;
+}
+
+/* Facebook */
+.social.facebook:hover {
+  background: #1877f2;
+  box-shadow: 0 0 18px rgba(24, 119, 242, 0.9);
+}
+
+/* Instagram (official gradient feel) */
+.social.instagram:hover {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  box-shadow: 0 0 18px rgba(221, 42, 123, 0.9);
+}
+
+/* LinkedIn */
+.social.linkedin:hover {
+  background: #0a66c2;
+  box-shadow: 0 0 18px rgba(10, 102, 194, 0.9);
+}
+/* ===============================
+   🔗 SOCIAL ICONS FIX
+================================ */
+
+/* Normal icons (inside sections) */
+.social-icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+/* Bottom fixed social icons only */
+.bottom-social {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+}
+/* ===============================
+   🔼 POP-UP EFFECT (NO GLOW)
+================================ */
+
+/* Facebook, Instagram, LinkedIn */
+.social-icons a {
+  transition: transform 0.25s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+}
+
+/* WhatsApp icon */
+.whatsapp-float {
+  transition: transform 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+}
+/* ===============================
+   📱 MOBILE FOOTER – EXTREME LEFT
+================================ */
+
+@media (max-width: 600px) {
+  .site-footer {
+    position: fixed;
+    left: 1px; /* 🔥 extreme left */
+    bottom: 1px; /* 🔥 extreme bottom */
+    font-size: 11px;
+    z-index: 300; /* below icons */
+    pointer-events: none; /* avoids accidental overlap */
+  }
+}
+/* ===============================
+   🧊 TRUE 3D SERVICE CARDS
+================================ */
+
+/* ===============================
+   🧊 UNIQUE 3D EFFECTS PER SERVICE
+================================ */
+
+/* Common base */
+.service-box {
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+}
+
+/* 🔹 1. LEFT TILT */
+.service-box.tilt-left:hover {
+  transform: rotateY(-18deg) rotateX(10deg) translateY(-10px);
+  box-shadow: 0 40px 70px rgba(255, 0, 79, 0.5);
+}
+
+/* 🔹 2. RIGHT TILT */
+.service-box.tilt-right:hover {
+  transform: rotateY(18deg) rotateX(10deg) translateY(-10px);
+  box-shadow: 0 40px 70px rgba(0, 255, 204, 0.5);
+}
+
+/* 🔹 3. FLIP UP */
+.service-box.flip-up:hover {
+  transform: rotateX(-18deg) translateY(-12px);
+  box-shadow: 0 45px 80px rgba(255, 165, 0, 0.6);
+}
+
+/* 🔹 4. ZOOM DEPTH */
+.service-box.zoom-depth:hover {
+  transform: translateZ(60px) scale(1.05);
+  box-shadow: 0 50px 90px rgba(30, 144, 255, 0.6);
+}
+
+/* Push content forward */
+.service-box h3,
+.service-box p {
+  transform: translateZ(50px);
+}
+@media (max-width: 768px) {
+  .service-box:hover {
+    transform: translateY(-6px);
+  }
+}
+.service-box p:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+}
+/* ===============================
+   🚆 TESTIMONIAL TRAIN (2 ROWS)
+================================ */
+
+#reviews {
+  padding: 120px;
+  overflow: hidden;
+}
+
+/* wrapper */
+.testimonial-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* each row */
+.testimonial-row {
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+/* moving track */
+.testimonial-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+}
+
+/* TOP ROW → LEFT */
+.row-left .testimonial-track {
+  animation: trainLeft 45s linear infinite;
+}
+
+/* BOTTOM ROW → RIGHT */
+.row-right .testimonial-track {
+  animation: trainRight 45s linear infinite;
+}
+
+/* animations */
+@keyframes trainLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes trainRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* pause on hover (premium feel) */
+.testimonial-row:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 280px;
+  }
+
+  #reviews {
+    padding: 80px 20px;
+  }
+}
+
+/* ===============================
+   💰 PRICING SECTION (REFERENCE STYLE)
+================================ */
+
+#pricing {
+  padding: 150px 120px 120px; /* 🔥 extra top space */
+  text-align: center;
+  background: #000;
+}
+
+.pricing-title {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  color: #aaa;
+  margin-bottom: 70px;
+  font-size: 16px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+/* CARD */
+.pricing-card {
+  background: linear-gradient(180deg, #140009, #070003);
+  padding: 45px 35px;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(255, 0, 79, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 35px 90px rgba(255, 0, 79, 0.6);
+}
+
+.pricing-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* PRICE */
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.price span {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* FEATURES */
+.pricing-card ul {
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+.pricing-card ul li {
+  margin: 12px 0;
+  font-size: 15px;
+  color: #ddd;
+}
+
+/* BUTTON */
+.pricing-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 14px;
+  background: #ff004f;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.pricing-btn:hover {
+  transform: scale(1.08);
+}
+
+/* POPULAR CARD */
+.pricing-card.popular {
+  background: linear-gradient(180deg, #5a0026, #2a000f);
+  transform: scale(1.08);
+  position: relative;
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.12) translateY(-10px);
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: -26px; /* 🔥 move higher */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4da6;
+  color: #fff;
+  padding: 7px 20px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+/* WHITE BUTTON */
+.pricing-btn.light {
+  background: #fff;
+  color: #000;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #pricing {
+    padding: 80px 20px;
+  }
+
+  .pricing-card.popular {
+    transform: none;
+  }
+}
+/* ===============================
+   ✨ SAAS-STYLE HOVER GLOW (PRICING)
+================================ */
+
+/* Base glow setup */
+.pricing-card {
+  position: relative;
+  overflow: visible;
+}
+
+/* Animated gradient border */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    120deg,
+    #ff004f,
+    #ff69b4,
+    #7f00ff,
+    #00ffd5,
+    #ff004f
+  );
+  background-size: 300% 300%;
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: pricingGlow 6s linear infinite;
+}
+
+/* Soft inner glass effect */
+.pricing-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.95));
+  border-radius: 20px;
+  z-index: -1;
+}
+
+/* Hover effect */
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* Lift + glow */
+.pricing-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow: 0 30px 80px rgba(255, 0, 79, 0.45),
+    0 0 40px rgba(255, 105, 180, 0.35);
+}
+
+/* Stronger glow for POPULAR card */
+.pricing-card.popular::before {
+  opacity: 0.7;
+}
+
+.pricing-card.popular:hover {
+  transform: translateY(-18px) scale(1.06);
+  box-shadow: 0 40px 120px rgba(255, 0, 79, 0.7),
+    0 0 60px rgba(255, 105, 180, 0.6);
+}
+
+/* Gradient animation */
+@keyframes pricingGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Reduce intensity on mobile */
+@media (max-width: 768px) {
+  .pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(255, 0, 79, 0.35);
+  }
+}
+/* Button glow follows card */
+.pricing-card:hover .pricing-btn {
+  box-shadow: 0 0 25px rgba(255, 0, 79, 0.6);
+}
+/* ===============================
+   💡 CURSOR SPOTLIGHT EFFECT
+================================ */
+
+.pricing-card.spotlight {
+  --x: 50%;
+  --y: 50%;
+}
+
+.pricing-card.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    180px circle at var(--x) var(--y),
+    rgba(255, 255, 255, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pricing-card.spotlight:hover::after {
+  opacity: 1;
+}
+/* 🍎 Disable shrink on mobile */
+@media (max-width: 768px) {
+  nav.shrink {
+    height: 70px;
+  }
+
+  nav.shrink .logo {
+    width: 150px;
+    top: 12px;
+  }
+
+  nav.shrink ul {
+    top: 20px;
+  }
+}
+/* ===============================
+   💎 PREMIUM TESTIMONIAL TRAIN
+================================ */
+
+/* SECTION */
+#reviews {
+  padding: 120px;
+  overflow: hidden;
+}
+
+/* WRAPPER */
+.testimonial-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ROW */
+.testimonial-row {
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+/* TRACK */
+.testimonial-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+}
+
+/* CARD (RECTANGLE – NOT 1x1) */
+.testimonial-card {
+  flex: 0 0 420px;
+  background: linear-gradient(180deg, #111, #080808);
+  padding: 32px 30px;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* HEADER */
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+/* PLATFORM ICONS – COLORFUL */
+.platform-icon {
+  font-size: 36px;
+}
+
+/* Brand colors */
+.platform-icon.shopify {
+  color: #95bf47;
+}
+.platform-icon.etsy {
+  color: #f16521;
+}
+.platform-icon.amazon {
+  color: #ff9900;
+}
+.platform-icon.ebay {
+  color: #e53238;
+}
+
+/* NAME */
+.testimonial-header h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ROLE */
+.testimonial-header p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* ⭐ PREMIUM YELLOW STARS */
+.stars {
+  color: #ffd700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin: 8px 0 14px;
+}
+
+/* TEXT */
+.testimonial-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+/* ===============================
+   🚆 TRAIN ANIMATION
+================================ */
+
+/* TOP → LEFT */
+.row-left .testimonial-track {
+  animation: trainLeft 50s linear infinite;
+}
+
+/* BOTTOM → RIGHT */
+.row-right .testimonial-track {
+  animation: trainRight 50s linear infinite;
+}
+
+@keyframes trainLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes trainRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Pause on hover (premium SaaS UX) */
+.testimonial-row:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* ===============================
+   📱 MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  #reviews {
+    padding: 80px 20px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 300px;
+    padding: 24px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+  }
+}
+/* ===============================
+   ✨ TESTIMONIAL POP + AURA GLOW
+================================ */
+
+/* Ensure positioning */
+.testimonial-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* POP + GLOW ON HOVER */
+.testimonial-card:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 30px 80px rgba(255, 0, 79, 0.35),
+    0 0 60px rgba(255, 105, 180, 0.45);
+}
+
+/* Activate aura */
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes auraPulse {
+  0% {
+    filter: blur(20px);
+  }
+  50% {
+    filter: blur(26px);
+  }
+  100% {
+    filter: blur(20px);
+  }
+}
+/* ===============================
+   💎 PROFESSIONAL FLOAT + UNDER GLOW
+================================ */
+
+/* Card base */
+.testimonial-card {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* POP UP */
+.testimonial-card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* UNDER GLOW ONLY */
+.testimonial-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 22px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 79, 0.55),
+    rgba(255, 0, 79, 0.25),
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+/* Activate under glow */
+.testimonial-card:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.15);
+}
+/* 🏆 About Trust Badges */
+.about-badges {
+  display: flex;
+  gap: 14px;
+  margin: 22px 0 10px;
+  flex-wrap: wrap;
+}
+
+.about-badges span {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #ddd;
+}
+/* 🛍️ Shopify Customization Section */
+#shopify-services {
+  padding: 120px;
+  background: radial-gradient(circle at top, #0c0c0c, #000);
+}
+
+#shopify-services h2 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.shopify-intro {
+  max-width: 650px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.shopify-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.shopify-grid ul {
+  list-style: none;
+}
+
+.shopify-grid li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.shopify-grid li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #95bf47; /* Shopify green */
+  font-weight: bold;
+}
+/* ===============================
+   📱 PROFESSIONAL MOBILE FIX
+   Shopify Services Section
+================================ */
+
+@media (max-width: 768px) {
+  /* SECTION SPACING */
+  #shopify-services {
+    padding: 70px 22px;
+  }
+
+  /* TITLE – CLEAN & BALANCED */
+  #shopify-services h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  /* PARAGRAPH – READABLE */
+  .shopify-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #cfcfcf;
+    margin-bottom: 28px;
+  }
+
+  /* GRID → STACKED */
+  .shopify-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* EACH LIST BECOMES A CARD */
+  .shopify-grid ul {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 18px 18px 10px;
+  }
+
+  /* LIST ITEMS */
+  .shopify-grid li {
+    font-size: 15px;
+    padding-left: 26px;
+    margin-bottom: 12px;
+    color: #e5e5e5;
+  }
+
+  .shopify-grid li::before {
+    font-size: 14px;
+    top: 1px;
+  }
+}
+/* ===============================
+   📱 MOBILE – PROVEN RESULTS FIX
+================================ */
+
+@media (max-width: 768px) {
+  #stats {
+    padding: 70px 20px 90px;
+    text-align: center;
+  }
+
+  #stats h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+
+  /* Wrap images visually */
+  .stats-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .stats-images img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    padding: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+}
+@media (max-width: 768px) {
+  .stats-subtitle {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 10px;
+  }
+}
