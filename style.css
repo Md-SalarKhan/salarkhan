@@ -1941,3 +1941,28 @@ nav.shrink ul {
     margin-bottom: 10px;
   }
 }
+/* 🔥 MOBILE HERO – FORCE EXTREME LEFT */
+@media (max-width: 600px) {
+  #hero {
+    justify-content: flex-start !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .hero-text {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .hero-text h1,
+  .hero-text p {
+    text-align: left !important;
+  }
+
+  .hero-cta {
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+  }
+}
+
