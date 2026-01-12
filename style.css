@@ -49,6 +49,7 @@ nav.scrolled {
 nav {
   transition: height 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* MENU */
 nav ul {
   display: flex;
@@ -1988,7 +1989,3 @@ nav.shrink ul {
     margin-left: 0 !important;
   }
 }
-
-
-
-
