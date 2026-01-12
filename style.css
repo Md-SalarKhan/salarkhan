@@ -25,7 +25,18 @@ nav {
   width: 100%;
   z-index: 1000;
 }
-
+/* Show bar when navbar is active */
+nav.active::before,
+nav.scrolled::before {
+  opacity: 1;
+}
+nav.active,
+nav.scrolled {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+nav {
+  transition: height 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
 /* MENU */
 nav ul {
   display: flex;
@@ -1965,4 +1976,5 @@ nav.shrink ul {
     margin-left: 0 !important;
   }
 }
+
 
