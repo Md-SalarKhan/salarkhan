@@ -633,24 +633,17 @@ nav ul {
 /* ===============================
    📱 MOBILE INTERFACE (SMALL SCREENS)
 ================================ */
-@media only screen and (max-width: 600px) {
-  /* HERO SECTION */
+@media (max-width: 600px) {
   #hero {
-    background: none;
-  }
-
-  #hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("images/background.webp") center/cover no-repeat;
-    z-index: -1;
+    background: url("images/background-mobile.webp") center/cover no-repeat;
   }
 
   .hero-text p {
     font-size: 16px;
     margin-top: 15px;
   }
+}
+
 
   /* CTA BUTTON */
   .hero-cta {
@@ -1989,3 +1982,4 @@ nav.shrink ul {
     margin-left: 0 !important;
   }
 }
+
